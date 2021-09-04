@@ -1,4 +1,4 @@
-class apache::install inherits apache{
+class apache::install {
   class { 'apache':
   }
 
