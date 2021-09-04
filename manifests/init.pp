@@ -1,4 +1,4 @@
-class apache::install {
+class customapache::install {
   class { 'apache':
   }
 
