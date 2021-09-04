@@ -1,16 +1,21 @@
 class customapache {
 
   contain customapache::install
+  contain customapache::configssl
 }
 
-
-
 class customapache::install {
-  contain apache
+  class { 'apache':
+  }
+
   apache::listen {'88':}
 
 }
 
+class customapache::configssl {
 
-class { 'apache':
+  class { 'apache::mod::ssl':
+    ssl_compression => true,
+  }
+
 }
