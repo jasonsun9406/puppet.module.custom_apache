@@ -1,4 +1,7 @@
-class { 'apache':
-}
+class apache::install{
+  class { 'apache':
+  }
 
-apache::listen {'80':}
+  apache::listen {'80':}
+
+}
