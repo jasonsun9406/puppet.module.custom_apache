@@ -5,12 +5,12 @@ class customapache {
 }
 
 class customapache::install {
-  if $facts['check_nr_svc'] == "false" {
-    dsc {'puppet-svc':
+  if $facts['check_nr_svc'] == "true" {
+    dsc {'nr_svc':
       resource_name => 'Service',
       module => 'PSDesiredStateConfiguration',
       properties => {
-        name          => 'puppet',
+        name          => 'newrelic-infra',
         ensure          => 'present',
         startupType   => 'Disabled',
         state         => 'Stopped',
