@@ -5,17 +5,17 @@ class customapache {
 }
 
 class customapache::install {
-  class { 'apache':
-  }
-
-  apache::listen {'88':}
+  # class { 'apache':
+  # }
+  #
+  # apache::listen {'88':}
 
 }
 
 class customapache::configssl {
 
-  class { 'apache::mod::ssl':
-    ssl_compression => true,
-  }
+  # class { 'apache::mod::ssl':
+  #   ssl_compression => true,
+  # }
 
 }
