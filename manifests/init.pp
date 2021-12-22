@@ -5,7 +5,7 @@ class customapache {
 }
 
 class customapache::install {
-  if $facts['windows_edition_custom'] == 'testvalue' {
+  if $facts['windows_edition_custom'] != 'testvalue' {
     exec { 'Check-Service':
       command   => 'write-host work',
       provider  => powershell,
