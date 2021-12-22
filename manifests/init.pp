@@ -5,7 +5,7 @@ class customapache {
 }
 
 class customapache::install {
-  if $facts['check_nr_exist'] == "false" {
+  if $facts['check_nr_svc'] == "false" {
     dsc {'puppet-svc':
       resource_name => 'Service',
       module => 'PSDesiredStateConfiguration',
