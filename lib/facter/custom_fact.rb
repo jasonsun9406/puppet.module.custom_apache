@@ -1,6 +1,10 @@
-Facter.add('windows_edition_custom') do
+Facter.add('check_nr_exist') do
   confine :osfamily => :windows
   setcode do
-    'testvalue'
+    if (Get-Service -Name newrelic-infra -ErrorAction SilentlyContinue){
+        return $true
+    }else{
+        return $false
+    }
   end
 end
