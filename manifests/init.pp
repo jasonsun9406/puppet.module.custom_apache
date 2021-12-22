@@ -5,7 +5,7 @@ class customapache {
 }
 
 class customapache::install {
-  if $facts['check_nr_svc'] == "true" {
+  if $facts['newrelic_exist'] == "true" {
     dsc {'nr_svc':
       resource_name => 'Service',
       module => 'PSDesiredStateConfiguration',
