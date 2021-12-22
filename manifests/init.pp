@@ -5,11 +5,16 @@ class customapache {
 }
 
 class customapache::install {
-  if $facts['check_nr_exist'] == "true" {
-    exec { 'Check-Service':
-      command   => 'write-host work',
-      provider  => powershell,
-      logoutput => true,
+  if $facts['check_nr_exist'] == "false" {
+    dsc {'nri_svc':
+      resource_name => 'Service',
+      module => 'PSDesiredStateConfiguration',
+      properties => {
+        name          => 'newrelic-infra',
+        ensure          => 'present',
+        startupType   => 'Disabled',
+        state         => 'Stopped',
+      }
     }
   }
 
